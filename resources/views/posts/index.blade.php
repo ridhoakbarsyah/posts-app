@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="max-w-4xl mx-auto mt-8">
-        <!-- Filter Navigation -->
+
         <div class="flex space-x-4 mb-6">
             <a href="{{ route('posts.index', ['status' => 'published']) }}"
                 class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Published</a>
@@ -12,7 +12,6 @@
                 class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Trashed</a>
         </div>
 
-        <!-- Table -->
         <div class="overflow-x-auto bg-white shadow-md rounded-lg">
             <table class="w-full border-collapse border border-gray-300">
                 <thead>

@@ -8,21 +8,21 @@
             @csrf
             @method('PUT')
 
-            <!-- Title Input -->
+
             <div>
                 <label class="block text-gray-600 font-medium mb-1">Title</label>
                 <input type="text" name="title" value="{{ old('title', $post->title) }}"
                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none" required>
             </div>
 
-            <!-- Content Input -->
+
             <div>
                 <label class="block text-gray-600 font-medium mb-1">Content</label>
                 <textarea name="content" rows="4"
                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none" required>{{ old('content', $post->content) }}</textarea>
             </div>
 
-            <!-- Category Dropdown -->
+
             <div>
                 <label class="block text-gray-600 font-medium mb-1">Category</label>
                 <select name="category"
@@ -33,7 +33,6 @@
                 </select>
             </div>
 
-            <!-- Action Buttons -->
             <div class="flex space-x-4">
                 <button type="submit" name="status" value="Publish"
                     class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
