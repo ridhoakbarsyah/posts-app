@@ -48,22 +48,18 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|string|max:255',
             'content' => 'required',
-            'category' => 'required',
+            'category' => 'required|in:Publish,Draft,Trash',
         ]);
-
-        $status = $request->has('publish') ? 'published' : 'draft';
 
         $post->update([
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'status' => $status,
         ]);
 
-        return redirect()->route('posts.index', ['status' => $status])
-            ->with('success', 'Post updated successfully.');
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
