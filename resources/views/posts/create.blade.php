@@ -27,19 +27,19 @@
                 <select name="category"
                     class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none" required>
                     <option value="" disabled selected>Select a category</option>
-                    <option value="published">Published</option>
-                    <option value="draft">Drafts</option>
-                    <option value="trashed">Trashed</option>
+                    <option value="Publish">Publish</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Trash">Trash</option>
                 </select>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex space-x-4">
-                <button type="submit" name="Publish"
+                <button type="submit" name="publish"
                     class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                     Publish
                 </button>
-                <button type="submit" name="Draft"
+                <button type="submit" name="draft"
                     class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition">
                     Save as Draft
                 </button>

@@ -27,14 +27,17 @@ class PostController extends Controller
             'category' => 'required',
         ]);
 
+        $status = $request->has('publish') ? 'published' : 'draft';
+
         Post::create([
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'status' => $request->has('publish') ? 'published' : 'draft',
+            'status' => $status,
         ]);
 
-        return redirect()->route('posts.index')->with('success', 'Post created successfully.');
+        return redirect()->route('posts.index', ['status' => $status])
+            ->with('success', 'Post created successfully.');
     }
 
     public function edit(Post $post)
@@ -50,20 +53,24 @@ class PostController extends Controller
             'category' => 'required',
         ]);
 
+        $status = $request->has('publish') ? 'published' : 'draft';
+
         $post->update([
             'title' => $request->title,
             'content' => $request->content,
             'category' => $request->category,
-            'status' => $request->has('publish') ? 'published' : 'draft',
+            'status' => $status,
         ]);
 
-        return redirect()->route('posts.index')->with('success', 'Post updated successfully.');
+        return redirect()->route('posts.index', ['status' => $status])
+            ->with('success', 'Post updated successfully.');
     }
 
     public function destroy(Post $post)
     {
         $post->update(['status' => 'trashed']);
-        return redirect()->route('posts.index')->with('success', 'Post moved to trash.');
+        return redirect()->route('posts.index', ['status' => 'trashed'])
+            ->with('success', 'Post moved to trash.');
     }
 
     public function preview()
